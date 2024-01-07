@@ -1,6 +1,7 @@
 package com.app
 
 import android.app.Application
+import com.app.Beer.BeerConfigPackage
 import com.facebook.react.PackageList
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactHost
@@ -23,6 +24,7 @@ class MainApplication : Application(), ReactApplication {
 
         // Add your custom package, e.g., MyAppPackage
           packages.add(RNConfigPackage())
+            packages.add(BeerConfigPackage())
 
           return packages
         }
