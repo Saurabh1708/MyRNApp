@@ -4,6 +4,9 @@ package com.app.Beer;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import javax.annotation.processing.Generated;
+
+@Generated("jsonschema2pojo")
 public class Hop {
 
     @SerializedName("name")

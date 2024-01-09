@@ -1,6 +1,5 @@
 package com.app.Beer;
 
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -45,16 +44,21 @@ public class BeerApiModule extends ReactContextBaseJavaModule {
     public void getBeerListOfBeers(int page, int per_Page, Promise promise) {
 
         Call<List<Beers>> call = apiService.fetchBeers(page, per_Page);
-        call.enqueue(new Callback<>() {
+        call.enqueue(new Callback<List<Beers>>() {
             @Override
             public void onResponse(@NonNull Call<List<Beers>> call, @NonNull Response<List<Beers>> response) {
-
-
                 if (response.isSuccessful()) {
                     List<Beers> beersList = response.body();
+
                     WritableArray writableArray = Arguments.createArray();
                     for (Beers beer : beersList) {
                         WritableMap beerMap = new WritableNativeMap();
+
+                        beerMap.putString("name", beer.getName());
+                        beerMap.putString("tagline", beer.getTagline());
+                        beerMap.putString("imgUrl", beer.getImageUrl());
+                        beerMap.putString("description", beer.getDescription());
+
                         writableArray.pushMap(beerMap);
                     }
 

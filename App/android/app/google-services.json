@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "366857926363",
+    "project_id": "myrnapp-d61f2",
+    "storage_bucket": "myrnapp-d61f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366857926363:android:57d4244db5e63832687efe",
+        "android_client_info": {
+          "package_name": "com.app.staging"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxE81EujlSHPJZXcLnOvAX9b1tmlydiuY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
