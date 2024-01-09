@@ -19,4 +19,14 @@ class MainActivity : ReactActivity() {
    */
   override fun createReactActivityDelegate(): ReactActivityDelegate =
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    Button crashButton = new Button(this);
+    crashButton.setText("Test Crash");
+    crashButton.setOnClickListener(new View.OnClickListener() {
+      public void onClick(View view) {
+          throw new RuntimeException("Test Crash"); // Force a crash
+      }
+    });
+  }
 }
