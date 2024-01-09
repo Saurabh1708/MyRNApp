@@ -1,54 +1,35 @@
-import React, {useCallback} from 'react';
-import {ActivityIndicator, FlatList, Text, View} from 'react-native';
-import {useBeerFetchingHook} from './useBeerFetchingHook';
+import React, {useEffect} from 'react';
+import {ActivityIndicator, FlatList, StyleSheet} from 'react-native';
+import {useBeerFetchingHook} from './hooks/useBeerFetchingHook';
+import {useBeerStore} from './hooks/useBeerStore';
+import {BeerItem} from './components/BeerItem';
 
 export const BeerList = () => {
-  const beers = useBeerFetchingHook();
-  const renderItem = useCallback(item => {
-    console.log('item--', item);
-    return (
-      <View
-        style={{
-          height: 190,
-          width: 164,
-          borderRadius: 10,
-          backgroundColor: '#C6FFE1',
-        }}>
-        <Text
-          style={{
-            color: '#333',
-            lineHeight: 14,
-            fontSize: 9,
-            fontWeight: '500',
-          }}>
-          {item.name}
-        </Text>
+  const {fetchNextPage} = useBeerFetchingHook();
+  const data = useBeerStore(store => store.beerData);
 
-        <Text
-          style={{
-            lineHeight: 20,
-            fontSize: 14,
-            fontWeight: '700',
-            color: '#000',
-          }}>
-          {item.tagline}
-        </Text>
-
-        <Text
-          style={{
-            lineHeight: 16,
-            fontSize: 8,
-            color: '#bdbdbd',
-          }}>
-          {item.description}
-        </Text>
-      </View>
-    );
+  useEffect(() => {
+    fetchNextPage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (beers === null) {
+  if (data === null) {
     return <ActivityIndicator size={'large'} color={'yellow'} />;
   }
 
-  return <FlatList data={beers} renderItem={renderItem} numColumns={2} onEndReached={()} />;
+  return (
+    <FlatList
+      data={data}
+      renderItem={BeerItem}
+      numColumns={2}
+      onEndReached={fetchNextPage}
+      contentContainerStyle={styles.content}
+    />
+  );
 };
+
+const styles = StyleSheet.create({
+  content: {
+    paddingHorizontal: 32,
+  },
+});

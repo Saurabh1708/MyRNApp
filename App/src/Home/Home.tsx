@@ -1,18 +1,16 @@
-import React, {useCallback, useMemo} from 'react';
-import {Text, View, ViewStyle} from 'react-native';
+import React, {useMemo} from 'react';
+import {StyleSheet, Text, View, ViewStyle} from 'react-native';
 import {BeerList} from '../Beers/BeersList';
 import {storage} from '../utility/MMKV';
-import {useTheme} from '../utility/useTheme';
 import {getCurrentEnv} from './Home.utils';
 import {ENV_NAME} from './Home.interace';
 
 export const Home = () => {
   const feed = storage.getString('feeds');
-
-  const theme = useTheme(state => state.theme);
+  // TO DO: feed syncing with POST api endpoint
   const env = getCurrentEnv();
 
-  const styles = useMemo<ViewStyle>(() => {
+  const bgStyle = useMemo<ViewStyle>(() => {
     switch (env) {
       case ENV_NAME.DEV:
         return {
@@ -30,18 +28,21 @@ export const Home = () => {
   }, [env]);
 
   return (
-    <View style={[styles, {flex: 1}]}>
-      <Text
-        style={{
-          lineHeight: 20,
-          fontSize: 16,
-          color: 'white',
-
-          alignSelf: 'center',
-        }}>
-        WELCOME TO HOME PAGE
-      </Text>
+    <View style={[bgStyle, styles.flex]}>
+      <Text style={styles.header}>WELCOME TO HOME PAGE</Text>
       <BeerList />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  flex: {
+    flex: 1,
+  },
+  header: {
+    lineHeight: 20,
+    fontSize: 16,
+    color: 'white',
+    alignSelf: 'center',
+  },
+});

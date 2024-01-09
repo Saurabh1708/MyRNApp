@@ -11,7 +11,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {Home} from './src/Home/Home';
 import {initBackgroundFetch} from './src/utility/BackgroundTask';
 import {getCurrentEnv} from './src/Home/Home.utils';
-import {ENV_NAME} from './src/Home/Home.interace';
 import {useTheme} from './src/utility/useTheme';
 import {NavigationContainer} from '@react-navigation/native';
 
@@ -30,7 +29,11 @@ function App(): React.JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name={'Home'} component={Home} />
+        <Stack.Screen
+          name={'Home'}
+          component={Home}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

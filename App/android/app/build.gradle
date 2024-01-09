@@ -3,6 +3,7 @@ plugins {
 
     // Add the Google services Gradle plugin
     id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 
 }
 
@@ -67,7 +68,7 @@ react {
     // hermesCommand = "$rootDir/my-custom-hermesc/bin/hermesc"
     //
     //   The list of flags to pass to the Hermes compiler. By default is "-O", "-output-source-map"
-    // hermesFlags = ["-O", "-output-source-map"]
+     hermesFlags = ["-O", "-output-source-map"]
 }
 
 /**
@@ -151,6 +152,7 @@ dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:flipper-integration")
+    implementation 'com.google.firebase:firebase-crashlytics:18.6.0'
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

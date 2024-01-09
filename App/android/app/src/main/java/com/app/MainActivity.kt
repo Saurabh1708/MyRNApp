@@ -1,5 +1,8 @@
 package com.app
 
+import android.os.Bundle
+import android.view.ViewGroup
+import android.widget.Button
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
@@ -20,13 +23,5 @@ class MainActivity : ReactActivity() {
   override fun createReactActivityDelegate(): ReactActivityDelegate =
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    Button crashButton = new Button(this);
-    crashButton.setText("Test Crash");
-    crashButton.setOnClickListener(new View.OnClickListener() {
-      public void onClick(View view) {
-          throw new RuntimeException("Test Crash"); // Force a crash
-      }
-    });
-  }
+
 }
