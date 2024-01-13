@@ -8,12 +8,12 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "android:staging": "react-native run-android --mode=stagingdebug --appId staging",
-    "android:staging:release": "react-native run-android --mode=stagingrelease --appId staging",
-    "android:development": "react-native run-android --mode=developmentdebug --appId development",
-    "android:development:release": "react-native run-android --mode=developmentrelease --appId development",
-    "android:production": "react-native run-android --mode=productiondebug --appId production",
-    "android:production:release": "react-native run-android --mode=productionrelease --appId production"
+    "android:staging:debug": "cd android && ./gradlew installStagingDebug",
+    "android:staging:release": "cd android && ./gradlew installStagingRelease",
+    "android:development:debug": "cd android && ./gradlew installDevelopmentDebug",
+    "android:development:release": "cd android && ./gradlew installDevelopmentRelease",
+    "android:production:debug": "cd android && ./gradlew installProductionDebug",
+    "android:production:release": "cd android && ./gradlew installProductionRelease"
   },
   "dependencies": {
     "@react-navigation/native": "^6.1.9",
@@ -22,7 +22,6 @@
     "react": "18.2.0",
     "react-native": "0.73.1",
     "react-native-background-fetch": "^4.2.1",
-    "react-native-config": "^1.5.1",
     "react-native-gesture-handler": "^2.14.0",
     "react-native-mmkv-storage": "^0.9.1",
     "react-native-safe-area-context": "^4.8.2",
