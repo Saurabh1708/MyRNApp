@@ -7,10 +7,11 @@ This is a [**React Native**](https://reactnative.dev) project bootstrapped using
     - **Production** 🚀
 - Each env has a different theme. 🎨
 - The home screen has a listing UI of the most famous beers in the world, which are fetched through a custom **Native Module** that fetches the responses in a paginated manner.
+- React Native's flatlist component is used to render the list.
 - React native navigation is used to navigate through the app.
 - [**Zustand**](https://zustand-demo.pmnd.rs/), is used for global state management.
 - To ensure prompt error and crash reporting, [**Crashlytics**](https://firebase.google.com/products/crashlytics) is used. We can visualize the stack traces to efficiently figure out crashes and bottlenecks in the project.
-- [**react-native-background-fetch**](https://www.npmjs.com/package/react-native-background-fetch) package is used to perform tasks (API calls) in the background after every 15mins
+- [**react-native-background-fetch**](https://www.npmjs.com/package/react-native-background-fetch) package is used to perform tasks (API calls) in the background after every 15mins.
 - [**react-native-mmkv-storage**](https://www.npmjs.com/package/react-native-mmkv-storage) package is used to synchronously fetch and store the responses from the background API calls.
 - For comparison between various storage libraries, I referred to this [Doc](https://arunkumarvallal.medium.com/overview-of-react-native-mmkv-efficient-key-value-storage-42a19baa01f9).
 

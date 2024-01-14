@@ -4,6 +4,7 @@ import {BeerList} from '../Beers/BeersList';
 import {storage} from '../utility/MMKV';
 import {getCurrentEnv} from './Home.utils';
 import {ENV_NAME} from './Home.interace';
+import {Header} from './components/Header';
 
 export const Home = () => {
   const feed = storage.getString('feeds');
@@ -29,7 +30,7 @@ export const Home = () => {
 
   return (
     <View style={[bgStyle, styles.flex]}>
-      <Text style={styles.header}>WELCOME TO HOME PAGE</Text>
+      <Header />
       <BeerList />
     </View>
   );
@@ -38,11 +39,5 @@ export const Home = () => {
 const styles = StyleSheet.create({
   flex: {
     flex: 1,
-  },
-  header: {
-    lineHeight: 20,
-    fontSize: 16,
-    color: 'white',
-    alignSelf: 'center',
   },
 });

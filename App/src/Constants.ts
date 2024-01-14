@@ -9,3 +9,9 @@ export const BACKGROUND_API_HEADERS = {
 export enum STORAGE_KEYS {
   FEED = 'feed',
 }
+
+export const LANGUAGES = [
+  {name: 'en', label: 'English'},
+  {name: 'fr', label: 'Français'},
+  {name: 'hi', label: 'Hindi'},
+];
