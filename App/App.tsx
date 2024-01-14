@@ -8,6 +8,8 @@ import {initBackgroundFetch} from './src/utility/BackgroundTask';
 import {useThemeStore} from './src/utility/useThemeStore.ts';
 import {NavigationContainer} from '@react-navigation/native';
 import './i18.config.ts';
+import ErrorBoundary from 'react-native-error-boundary';
+import {ErrorPage} from './src/ErrorPage/ErrorPage.tsx';
 
 const Stack = createStackNavigator();
 
@@ -19,24 +21,26 @@ function App(): React.JSX.Element {
   }, []);
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Language">
-        <Stack.Screen
-          name={'Home'}
-          component={Home}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name={'Language'}
-          component={LanguageSelection}
-          options={{
-            headerShown: false,
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ErrorBoundary onError={() => {}} FallbackComponent={ErrorPage}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Language">
+          <Stack.Screen
+            name={'Home'}
+            component={Home}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name={'Language'}
+            component={LanguageSelection}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ErrorBoundary>
   );
 }
 

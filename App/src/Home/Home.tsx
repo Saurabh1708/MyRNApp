@@ -15,15 +15,15 @@ export const Home = () => {
     switch (env) {
       case ENV_NAME.DEV:
         return {
-          backgroundColor: 'black',
+          backgroundColor: '#52504e',
         };
       case ENV_NAME.STAG:
         return {
-          backgroundColor: 'red',
+          backgroundColor: '#a1425b',
         };
       default:
         return {
-          backgroundColor: 'blue',
+          backgroundColor: '#bfd5db',
         };
     }
   }, [env]);
