@@ -14,6 +14,7 @@ This is a [**React Native**](https://reactnative.dev) project bootstrapped using
 - [**react-native-background-fetch**](https://www.npmjs.com/package/react-native-background-fetch) package is used to perform tasks (API calls) in the background after every 15mins.
 - [**react-native-mmkv-storage**](https://www.npmjs.com/package/react-native-mmkv-storage) package is used to synchronously fetch and store the responses from the background API calls.
 - For comparison between various storage libraries, I referred to this [Doc](https://arunkumarvallal.medium.com/overview-of-react-native-mmkv-efficient-key-value-storage-42a19baa01f9).
+- The app has basic support for internationalisation as well. Currently, it suppports 3 languages: English, Hindi and French. This was possible through [**i18-next**](https://www.i18next.com/) 
 
 
 # Getting Started
